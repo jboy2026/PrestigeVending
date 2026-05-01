@@ -1,0 +1,326 @@
+import {
+  CheckCircle2,
+  Coffee,
+  Sandwich,
+  CupSoda,
+  Wrench,
+  MapPin,
+  Phone,
+  Mail,
+  ArrowRight,
+  Star,
+  ShieldCheck,
+  Clock,
+  Truck,
+} from 'lucide-react';
+
+const serviceAreas = ['Melbourne', 'Palm Bay', 'Rockledge', 'Cocoa', 'Titusville', 'Cocoa Beach', 'Brevard County'];
+
+const services = [
+  {
+    icon: Coffee,
+    title: 'Snack & Beverage Vending',
+    text: 'Premium snacks, drinks, and refreshments that keep employees energized throughout the day.',
+  },
+  {
+    icon: Sandwich,
+    title: 'Fresh Food Options',
+    text: 'Healthy meal solutions including salads, sandwiches, mixed nuts, veggie chips, popcorn, and wholesome alternatives.',
+  },
+  {
+    icon: CupSoda,
+    title: 'Cold Beverages',
+    text: 'A wide selection of cold beverages, from sparkling water to energy drinks and everyday favorites.',
+  },
+  {
+    icon: Wrench,
+    title: 'Maintenance & Restocking',
+    text: 'Installation, regular restocking, cleaning, maintenance, and fast service response included.',
+  },
+];
+
+const benefits = [
+  'Free vending machine installation and placement',
+  'No cost to your business',
+  'Premium snack and beverage selection',
+  'Customized product mix for your workplace',
+  'Full-service restocking, cleaning, and maintenance',
+  'Modern machines with smart payment technology',
+  'Energy-efficient LED lighting and ADA-compliant machines',
+  'Fast response and white-glove customer support',
+];
+
+const faqs = [
+  {
+    q: 'How much does vending service cost?',
+    a: 'Prestige Vending LLC provides free, full-service vending machine programs for qualified businesses. Installation, stocking, maintenance, and service are included.',
+  },
+  {
+    q: 'What areas do you service?',
+    a: 'We serve businesses across Brevard County, including Melbourne, Palm Bay, Rockledge, Cocoa, Cocoa Beach, Titusville, and surrounding areas.',
+  },
+  {
+    q: 'Who handles restocking and maintenance?',
+    a: 'Prestige Vending LLC handles installation, restocking, maintenance, cleaning, and customer support so your team has a hassle-free break room experience.',
+  },
+  {
+    q: 'Can the product selection be customized?',
+    a: 'Yes. Machines can be stocked with a product mix tailored to your employees, including traditional snacks, beverages, and healthier options.',
+  },
+];
+
+function App() {
+  return (
+    <main>
+      <header className="site-header">
+        <a href="#home" className="brand">
+          <span className="brand-mark">PV</span>
+          <span>
+            <strong>Prestige Vending</strong>
+            <small>LLC</small>
+          </span>
+        </a>
+
+        <nav aria-label="Main navigation">
+          <a href="#services">Services</a>
+          <a href="#locations">Locations</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact" className="nav-cta">Contact</a>
+        </nav>
+      </header>
+
+      <section id="home" className="hero">
+        <div className="hero-overlay" />
+        <div className="container hero-grid">
+          <div className="hero-copy">
+            <p className="eyebrow">Brevard County’s Premium Vending Service Provider</p>
+            <h1>Full-service vending machines for employee break rooms.</h1>
+            <p className="hero-text">
+              Prestige Vending LLC installs, stocks, and maintains modern snack and beverage machines
+              for offices, warehouses, medical facilities, salons, and professional workplaces across
+              Brevard County, Florida.
+            </p>
+
+            <div className="hero-actions">
+              <a href="#contact" className="button primary">
+                Request Free Installation <ArrowRight size={18} />
+              </a>
+              <a href="#services" className="button secondary">View Services</a>
+            </div>
+
+            <div className="trust-row">
+              <span><CheckCircle2 size={18} /> No cost to your business</span>
+              <span><CheckCircle2 size={18} /> Restocking included</span>
+              <span><CheckCircle2 size={18} /> Fast local support</span>
+            </div>
+          </div>
+
+          <div className="hero-card">
+            <div className="machine">
+              <div className="machine-top" />
+              <div className="machine-grid">
+                {Array.from({ length: 18 }).map((_, index) => (
+                  <span key={index} />
+                ))}
+              </div>
+              <div className="machine-panel">
+                <i />
+                <i />
+                <i />
+              </div>
+            </div>
+            <div className="hero-card-footer">
+              <strong>Modern vending, managed for you.</strong>
+              <p>Installation, restocking, and maintenance included.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="intro-section">
+        <div className="container intro-grid">
+          <div>
+            <p className="eyebrow dark">One-stop vending solution</p>
+            <h2>Keep your team fueled without adding work to your day.</h2>
+          </div>
+          <div className="intro-copy">
+            <p>
+              We provide upscale, full-service vending machine placement for employee break rooms.
+              From setup and delivery to product rotation and service calls, Prestige Vending LLC
+              handles the details so your workplace stays stocked and productive.
+            </p>
+            <a href="#contact" className="text-link">Schedule your free consultation</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" className="section">
+        <div className="container">
+          <div className="section-heading">
+            <p className="eyebrow dark">Our vending services</p>
+            <h2>Premium break room solutions for businesses.</h2>
+            <p>
+              A complete vending program built for employee satisfaction, convenience, and reliability.
+            </p>
+          </div>
+
+          <div className="service-grid">
+            {services.map(({ icon: Icon, title, text }) => (
+              <article className="service-card" key={title}>
+                <div className="icon-wrap"><Icon size={28} /></div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="dark-panel">
+        <div className="container">
+          <div className="section-heading light">
+            <p className="eyebrow gold">Why Brevard businesses trust us</p>
+            <h2>Reliable service. Better break rooms. Zero hassle.</h2>
+          </div>
+
+          <div className="benefit-grid">
+            {benefits.map((benefit) => (
+              <div className="benefit" key={benefit}>
+                <CheckCircle2 size={20} />
+                <span>{benefit}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="locations" className="section locations">
+        <div className="container location-grid">
+          <div>
+            <p className="eyebrow dark">Locations we service</p>
+            <h2>Vending machine services in Melbourne & Brevard County.</h2>
+            <p>
+              Brevard County is a hub for business and innovation. Prestige Vending LLC supports local
+              workplaces with free, full-service vending programs tailored to each location.
+            </p>
+
+            <div className="area-tags">
+              {serviceAreas.map((area) => (
+                <span key={area}><MapPin size={15} /> {area}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="stats-card">
+            <div>
+              <Truck size={30} />
+              <strong>Free delivery & setup</strong>
+              <span>Optimal machine placement for your workplace.</span>
+            </div>
+            <div>
+              <Clock size={30} />
+              <strong>Prompt local support</strong>
+              <span>Fast response when your team needs service.</span>
+            </div>
+            <div>
+              <ShieldCheck size={30} />
+              <strong>Complete maintenance</strong>
+              <span>Restocking, cleaning, and equipment care handled.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="testimonials">
+        <div className="container">
+          <div className="section-heading">
+            <p className="eyebrow dark">What local businesses say</p>
+            <h2>Trusted by workplaces across Brevard County.</h2>
+          </div>
+
+          <div className="testimonial-grid">
+            <blockquote>
+              <div className="stars"><Star /><Star /><Star /><Star /><Star /></div>
+              <p>“Prestige Vending keeps our break room stocked and employees happy. Their service is hassle-free and reliable.”</p>
+              <cite>Office Manager, Melbourne</cite>
+            </blockquote>
+            <blockquote>
+              <div className="stars"><Star /><Star /><Star /><Star /><Star /></div>
+              <p>“White-glove vending service with premium snacks and drinks — highly recommended for any office in Brevard County.”</p>
+              <cite>HR Director, Palm Bay</cite>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" className="section faq">
+        <div className="container">
+          <div className="section-heading">
+            <p className="eyebrow dark">FAQ</p>
+            <h2>Common questions.</h2>
+          </div>
+
+          <div className="faq-list">
+            {faqs.map((item) => (
+              <details key={item.q}>
+                <summary>{item.q}</summary>
+                <p>{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="contact-section">
+        <div className="container contact-card">
+          <div>
+            <p className="eyebrow gold">Request your free installation</p>
+            <h2>Ready to upgrade your break room?</h2>
+            <p>
+              Contact Prestige Vending LLC to schedule a free consultation and start enjoying a
+              full-service, hassle-free vending experience.
+            </p>
+
+            <div className="contact-lines">
+              <span><Phone size={18} /> Add phone number</span>
+              <span><Mail size={18} /> Add email address</span>
+              <span><MapPin size={18} /> Serving Brevard County, FL</span>
+            </div>
+          </div>
+
+          <form className="contact-form" name="contact" method="post">
+            <label>
+              Name
+              <input type="text" name="name" placeholder="Your name" />
+            </label>
+            <label>
+              Business
+              <input type="text" name="business" placeholder="Company name" />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" placeholder="you@example.com" />
+            </label>
+            <label>
+              Message
+              <textarea name="message" rows="4" placeholder="Tell us about your location..." />
+            </label>
+            <button type="submit" className="button primary">Request Free Installation</button>
+          </form>
+        </div>
+      </section>
+
+      <footer>
+        <div className="container footer-grid">
+          <div>
+            <strong>Prestige Vending LLC</strong>
+            <p>Full-service vending machine placement across Brevard County, Florida.</p>
+          </div>
+          <p>© 2025 Prestige Vending LLC. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </main>
+  );
+}
+
+export default App;
