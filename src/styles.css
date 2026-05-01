@@ -1,326 +1,668 @@
-import {
-  CheckCircle2,
-  Coffee,
-  Sandwich,
-  CupSoda,
-  Wrench,
-  MapPin,
-  Phone,
-  Mail,
-  ArrowRight,
-  Star,
-  ShieldCheck,
-  Clock,
-  Truck,
-} from 'lucide-react';
-
-const serviceAreas = ['Melbourne', 'Palm Bay', 'Rockledge', 'Cocoa', 'Titusville', 'Cocoa Beach', 'Brevard County'];
-
-const services = [
-  {
-    icon: Coffee,
-    title: 'Snack & Beverage Vending',
-    text: 'Premium snacks, drinks, and refreshments that keep employees energized throughout the day.',
-  },
-  {
-    icon: Sandwich,
-    title: 'Fresh Food Options',
-    text: 'Healthy meal solutions including salads, sandwiches, mixed nuts, veggie chips, popcorn, and wholesome alternatives.',
-  },
-  {
-    icon: CupSoda,
-    title: 'Cold Beverages',
-    text: 'A wide selection of cold beverages, from sparkling water to energy drinks and everyday favorites.',
-  },
-  {
-    icon: Wrench,
-    title: 'Maintenance & Restocking',
-    text: 'Installation, regular restocking, cleaning, maintenance, and fast service response included.',
-  },
-];
-
-const benefits = [
-  'Free vending machine installation and placement',
-  'No cost to your business',
-  'Premium snack and beverage selection',
-  'Customized product mix for your workplace',
-  'Full-service restocking, cleaning, and maintenance',
-  'Modern machines with smart payment technology',
-  'Energy-efficient LED lighting and ADA-compliant machines',
-  'Fast response and white-glove customer support',
-];
-
-const faqs = [
-  {
-    q: 'How much does vending service cost?',
-    a: 'Prestige Vending LLC provides free, full-service vending machine programs for qualified businesses. Installation, stocking, maintenance, and service are included.',
-  },
-  {
-    q: 'What areas do you service?',
-    a: 'We serve businesses across Brevard County, including Melbourne, Palm Bay, Rockledge, Cocoa, Cocoa Beach, Titusville, and surrounding areas.',
-  },
-  {
-    q: 'Who handles restocking and maintenance?',
-    a: 'Prestige Vending LLC handles installation, restocking, maintenance, cleaning, and customer support so your team has a hassle-free break room experience.',
-  },
-  {
-    q: 'Can the product selection be customized?',
-    a: 'Yes. Machines can be stocked with a product mix tailored to your employees, including traditional snacks, beverages, and healthier options.',
-  },
-];
-
-function App() {
-  return (
-    <main>
-      <header className="site-header">
-        <a href="#home" className="brand">
-          <span className="brand-mark">PV</span>
-          <span>
-            <strong>Prestige Vending</strong>
-            <small>LLC</small>
-          </span>
-        </a>
-
-        <nav aria-label="Main navigation">
-          <a href="#services">Services</a>
-          <a href="#locations">Locations</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contact" className="nav-cta">Contact</a>
-        </nav>
-      </header>
-
-      <section id="home" className="hero">
-        <div className="hero-overlay" />
-        <div className="container hero-grid">
-          <div className="hero-copy">
-            <p className="eyebrow">Brevard County’s Premium Vending Service Provider</p>
-            <h1>Full-service vending machines for employee break rooms.</h1>
-            <p className="hero-text">
-              Prestige Vending LLC installs, stocks, and maintains modern snack and beverage machines
-              for offices, warehouses, medical facilities, salons, and professional workplaces across
-              Brevard County, Florida.
-            </p>
-
-            <div className="hero-actions">
-              <a href="#contact" className="button primary">
-                Request Free Installation <ArrowRight size={18} />
-              </a>
-              <a href="#services" className="button secondary">View Services</a>
-            </div>
-
-            <div className="trust-row">
-              <span><CheckCircle2 size={18} /> No cost to your business</span>
-              <span><CheckCircle2 size={18} /> Restocking included</span>
-              <span><CheckCircle2 size={18} /> Fast local support</span>
-            </div>
-          </div>
-
-          <div className="hero-card">
-            <div className="machine">
-              <div className="machine-top" />
-              <div className="machine-grid">
-                {Array.from({ length: 18 }).map((_, index) => (
-                  <span key={index} />
-                ))}
-              </div>
-              <div className="machine-panel">
-                <i />
-                <i />
-                <i />
-              </div>
-            </div>
-            <div className="hero-card-footer">
-              <strong>Modern vending, managed for you.</strong>
-              <p>Installation, restocking, and maintenance included.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="intro-section">
-        <div className="container intro-grid">
-          <div>
-            <p className="eyebrow dark">One-stop vending solution</p>
-            <h2>Keep your team fueled without adding work to your day.</h2>
-          </div>
-          <div className="intro-copy">
-            <p>
-              We provide upscale, full-service vending machine placement for employee break rooms.
-              From setup and delivery to product rotation and service calls, Prestige Vending LLC
-              handles the details so your workplace stays stocked and productive.
-            </p>
-            <a href="#contact" className="text-link">Schedule your free consultation</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="services" className="section">
-        <div className="container">
-          <div className="section-heading">
-            <p className="eyebrow dark">Our vending services</p>
-            <h2>Premium break room solutions for businesses.</h2>
-            <p>
-              A complete vending program built for employee satisfaction, convenience, and reliability.
-            </p>
-          </div>
-
-          <div className="service-grid">
-            {services.map(({ icon: Icon, title, text }) => (
-              <article className="service-card" key={title}>
-                <div className="icon-wrap"><Icon size={28} /></div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="dark-panel">
-        <div className="container">
-          <div className="section-heading light">
-            <p className="eyebrow gold">Why Brevard businesses trust us</p>
-            <h2>Reliable service. Better break rooms. Zero hassle.</h2>
-          </div>
-
-          <div className="benefit-grid">
-            {benefits.map((benefit) => (
-              <div className="benefit" key={benefit}>
-                <CheckCircle2 size={20} />
-                <span>{benefit}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="locations" className="section locations">
-        <div className="container location-grid">
-          <div>
-            <p className="eyebrow dark">Locations we service</p>
-            <h2>Vending machine services in Melbourne & Brevard County.</h2>
-            <p>
-              Brevard County is a hub for business and innovation. Prestige Vending LLC supports local
-              workplaces with free, full-service vending programs tailored to each location.
-            </p>
-
-            <div className="area-tags">
-              {serviceAreas.map((area) => (
-                <span key={area}><MapPin size={15} /> {area}</span>
-              ))}
-            </div>
-          </div>
-
-          <div className="stats-card">
-            <div>
-              <Truck size={30} />
-              <strong>Free delivery & setup</strong>
-              <span>Optimal machine placement for your workplace.</span>
-            </div>
-            <div>
-              <Clock size={30} />
-              <strong>Prompt local support</strong>
-              <span>Fast response when your team needs service.</span>
-            </div>
-            <div>
-              <ShieldCheck size={30} />
-              <strong>Complete maintenance</strong>
-              <span>Restocking, cleaning, and equipment care handled.</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="testimonials">
-        <div className="container">
-          <div className="section-heading">
-            <p className="eyebrow dark">What local businesses say</p>
-            <h2>Trusted by workplaces across Brevard County.</h2>
-          </div>
-
-          <div className="testimonial-grid">
-            <blockquote>
-              <div className="stars"><Star /><Star /><Star /><Star /><Star /></div>
-              <p>“Prestige Vending keeps our break room stocked and employees happy. Their service is hassle-free and reliable.”</p>
-              <cite>Office Manager, Melbourne</cite>
-            </blockquote>
-            <blockquote>
-              <div className="stars"><Star /><Star /><Star /><Star /><Star /></div>
-              <p>“White-glove vending service with premium snacks and drinks — highly recommended for any office in Brevard County.”</p>
-              <cite>HR Director, Palm Bay</cite>
-            </blockquote>
-          </div>
-        </div>
-      </section>
-
-      <section id="faq" className="section faq">
-        <div className="container">
-          <div className="section-heading">
-            <p className="eyebrow dark">FAQ</p>
-            <h2>Common questions.</h2>
-          </div>
-
-          <div className="faq-list">
-            {faqs.map((item) => (
-              <details key={item.q}>
-                <summary>{item.q}</summary>
-                <p>{item.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" className="contact-section">
-        <div className="container contact-card">
-          <div>
-            <p className="eyebrow gold">Request your free installation</p>
-            <h2>Ready to upgrade your break room?</h2>
-            <p>
-              Contact Prestige Vending LLC to schedule a free consultation and start enjoying a
-              full-service, hassle-free vending experience.
-            </p>
-
-            <div className="contact-lines">
-              <span><Phone size={18} /> Add phone number</span>
-              <span><Mail size={18} /> Add email address</span>
-              <span><MapPin size={18} /> Serving Brevard County, FL</span>
-            </div>
-          </div>
-
-          <form className="contact-form" name="contact" method="post">
-            <label>
-              Name
-              <input type="text" name="name" placeholder="Your name" />
-            </label>
-            <label>
-              Business
-              <input type="text" name="business" placeholder="Company name" />
-            </label>
-            <label>
-              Email
-              <input type="email" name="email" placeholder="you@example.com" />
-            </label>
-            <label>
-              Message
-              <textarea name="message" rows="4" placeholder="Tell us about your location..." />
-            </label>
-            <button type="submit" className="button primary">Request Free Installation</button>
-          </form>
-        </div>
-      </section>
-
-      <footer>
-        <div className="container footer-grid">
-          <div>
-            <strong>Prestige Vending LLC</strong>
-            <p>Full-service vending machine placement across Brevard County, Florida.</p>
-          </div>
-          <p>© 2025 Prestige Vending LLC. All Rights Reserved.</p>
-        </div>
-      </footer>
-    </main>
-  );
+:root {
+  --ink: #111827;
+  --muted: #5b6472;
+  --gold: #c6943a;
+  --gold-dark: #9f6b1e;
+  --cream: #fbf7ef;
+  --line: #e8e2d8;
+  --dark: #050505;
+  --white: #ffffff;
 }
 
-export default App;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1160px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+  color: var(--white);
+  background: rgba(5, 5, 5, 0.74);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--gold), #f3d38a);
+  color: #1f1404;
+  font-weight: 900;
+}
+
+.brand strong,
+.brand small {
+  display: block;
+  line-height: 1.1;
+}
+
+.brand small {
+  color: rgba(255,255,255,0.7);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.nav-cta {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: #1d1305;
+}
+
+.hero {
+  min-height: 760px;
+  padding: 160px 0 90px;
+  color: var(--white);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(198, 148, 58, 0.26), transparent 28%),
+    linear-gradient(120deg, rgba(0,0,0,0.92), rgba(0,0,0,0.70), rgba(96,49,4,0.72)),
+    #111111;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-copy {
+  max-width: 720px;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.eyebrow.dark {
+  color: var(--gold-dark);
+}
+
+.eyebrow.gold {
+  color: #f0cf7a;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 22px;
+  font-size: clamp(3.4rem, 7vw, 6.7rem);
+  line-height: 0.94;
+  letter-spacing: -0.075em;
+}
+
+h2 {
+  margin-bottom: 18px;
+  font-size: clamp(2.2rem, 4vw, 4.35rem);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+}
+
+h3 {
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
+.hero-text {
+  max-width: 670px;
+  color: rgba(255,255,255,0.82);
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 34px 0 28px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 14px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button.primary {
+  background: linear-gradient(135deg, var(--gold), #f2d58d);
+  color: #1d1305;
+  box-shadow: 0 18px 40px rgba(198,148,58,0.26);
+}
+
+.button.secondary {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+.trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  color: rgba(255,255,255,0.86);
+}
+
+.trust-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-card {
+  padding: 22px;
+  border-radius: 32px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 30px 100px rgba(0,0,0,0.36);
+  backdrop-filter: blur(18px);
+}
+
+.machine {
+  display: grid;
+  grid-template-columns: 1fr 90px;
+  gap: 18px;
+  min-height: 440px;
+  padding: 22px;
+  border-radius: 26px;
+  background: linear-gradient(135deg, #181818, #030303);
+  overflow: hidden;
+}
+
+.machine-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.machine-grid span {
+  min-height: 76px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f8cf43, #e65d42 45%, #2294d2);
+  box-shadow: inset 0 0 0 5px rgba(255,255,255,0.08);
+}
+
+.machine-grid span:nth-child(2n) {
+  background: linear-gradient(135deg, #51bf6b, #2aa3d8 44%, #f7e7c3);
+}
+
+.machine-grid span:nth-child(3n) {
+  background: linear-gradient(135deg, #ec4964, #f1bd38 48%, #1d1d1d);
+}
+
+.machine-panel {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+}
+
+.machine-panel i {
+  display: block;
+  height: 66px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.hero-card-footer {
+  padding: 18px 4px 4px;
+}
+
+.hero-card-footer p {
+  margin: 6px 0 0;
+  color: rgba(255,255,255,0.7);
+}
+
+.intro-section,
+.section {
+  padding: 92px 0;
+  background: var(--cream);
+}
+
+.intro-grid,
+.location-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.intro-copy,
+.location-grid p,
+.section-heading p,
+.service-card p,
+.faq p,
+.contact-card p,
+footer p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.text-link {
+  display: inline-flex;
+  margin-top: 12px;
+  color: var(--gold-dark);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 2px solid var(--gold);
+}
+
+.section-heading {
+  max-width: 770px;
+  margin: 0 auto 46px;
+  text-align: center;
+}
+
+.section-heading.light {
+  color: var(--white);
+}
+
+.section-heading.light p {
+  color: rgba(255,255,255,0.75);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.service-card {
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background: var(--white);
+  box-shadow: 0 18px 48px rgba(29, 24, 17, 0.07);
+}
+
+.icon-wrap {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 24px;
+  border-radius: 18px;
+  background: #fff2d2;
+  color: var(--gold-dark);
+}
+
+.dark-panel {
+  padding: 100px 0;
+  color: var(--white);
+  background: #030303;
+}
+
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.benefit {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 18px;
+  border-radius: 18px;
+  color: rgba(255,255,255,0.86);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.benefit svg {
+  flex: 0 0 auto;
+  color: #f0cf7a;
+}
+
+.area-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.area-tags span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  color: #2f3745;
+  font-weight: 800;
+}
+
+.stats-card {
+  display: grid;
+  gap: 16px;
+}
+
+.stats-card div {
+  padding: 26px;
+  border-radius: 24px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 48px rgba(29, 24, 17, 0.06);
+}
+
+.stats-card svg {
+  color: var(--gold-dark);
+  margin-bottom: 14px;
+}
+
+.stats-card strong,
+.stats-card span {
+  display: block;
+}
+
+.stats-card span {
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+.testimonials {
+  padding: 92px 0;
+  background: var(--white);
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+blockquote {
+  margin: 0;
+  padding: 34px;
+  border-radius: 26px;
+  background: var(--cream);
+  border: 1px solid var(--line);
+}
+
+blockquote p {
+  color: #20242d;
+  font-size: 1.22rem;
+  line-height: 1.6;
+}
+
+cite {
+  color: var(--muted);
+  font-style: normal;
+  font-weight: 800;
+}
+
+.stars {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 18px;
+  color: var(--gold-dark);
+}
+
+.stars svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.faq-list {
+  max-width: 880px;
+  margin: 0 auto;
+  display: grid;
+  gap: 12px;
+}
+
+details {
+  border-radius: 18px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+summary {
+  padding: 22px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+details p {
+  padding: 0 22px 22px;
+}
+
+.contact-section {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #090909, #281601);
+  color: var(--white);
+}
+
+.contact-card {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 44px;
+  padding: 40px;
+  border-radius: 34px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.13);
+  box-shadow: 0 28px 90px rgba(0,0,0,0.3);
+}
+
+.contact-card p {
+  color: rgba(255,255,255,0.74);
+}
+
+.contact-lines {
+  display: grid;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.contact-lines span {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: rgba(255,255,255,0.86);
+}
+
+.contact-form {
+  display: grid;
+  gap: 14px;
+  padding: 24px;
+  border-radius: 24px;
+  background: var(--white);
+  color: var(--ink);
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  color: #343b48;
+  font-weight: 800;
+  font-size: 0.94rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid #d8dce3;
+  border-radius: 14px;
+  padding: 14px 15px;
+  font: inherit;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  outline: 3px solid rgba(198,148,58,0.25);
+  border-color: var(--gold);
+}
+
+footer {
+  padding: 30px 0;
+  color: rgba(255,255,255,0.76);
+  background: #020202;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+
+footer strong {
+  color: var(--white);
+}
+
+footer p {
+  margin: 6px 0 0;
+  color: rgba(255,255,255,0.6);
+}
+
+@media (max-width: 980px) {
+  .site-header {
+    position: absolute;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .hero-grid,
+  .intro-grid,
+  .location-grid,
+  .contact-card {
+    grid-template-columns: 1fr;
+  }
+
+  .service-grid,
+  .benefit-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero {
+    padding-top: 130px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(100% - 28px, 1160px);
+  }
+
+  .site-header {
+    padding: 14px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-bottom: 54px;
+  }
+
+  h1 {
+    font-size: 3.1rem;
+  }
+
+  h2 {
+    font-size: 2.35rem;
+  }
+
+  .hero-actions,
+  .button {
+    width: 100%;
+  }
+
+  .service-grid,
+  .benefit-grid,
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .machine {
+    min-height: 320px;
+    grid-template-columns: 1fr 64px;
+  }
+
+  .machine-grid span {
+    min-height: 52px;
+  }
+
+  .intro-section,
+  .section,
+  .testimonials,
+  .dark-panel,
+  .contact-section {
+    padding: 64px 0;
+  }
+
+  .contact-card {
+    padding: 22px;
+  }
+
+  .footer-grid {
+    display: block;
+  }
+}
